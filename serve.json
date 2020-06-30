@@ -1,0 +1,11 @@
+[
+		{
+		  "name": "cofaxAdmin",
+		  "class": "org.cofax.cds.AdminServlet"
+		},
+		{
+		  "name": "fileServlet",
+		  "class": "org.cofax.cds.FileServlet"
+		}
+	]
+	
