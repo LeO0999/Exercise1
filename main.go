@@ -14,8 +14,10 @@ type Serve struct {
 }
 
 func main() {
-	//WriteFile()
 
+	//Bai 1: Ghi file
+	//WriteFile()
+	// Bai 2: đọc file
 	file, err := ioutil.ReadFile("serve.json")
 	if err != nil {
 		fmt.Println(err)
@@ -23,20 +25,20 @@ func main() {
 
 	data := make([]Serve, 2)
 
-	_ = json.Unmarshal([]byte(file), &data)
+	_ = json.Unmarshal(file, &data)
 
-	for i := 0; i < len(data); i++ {
-		log.Println("Name: ", data[i].Name)
-		log.Println("Class: ", data[i].Class)
+	for _, i := range data {
+		log.Println("Name: ", i.Name)
+		log.Println("Class: ", i.Class)
 	}
 
 	// Bai 3: lọc kết quả với class có chứa từ `admin` in ra đối tượng phù hợp
 	xet := 0
-	for i := 0; i < len(data); i++ {
+	for _, i := range data {
 
-		if strings.Contains(data[i].Class, "admin") {
+		if strings.Contains(i.Class, "admin") {
 			fmt.Println("Doi tuong co chu 'admin'la ")
-			fmt.Println(data[i])
+			fmt.Println(i)
 			xet += 1
 		}
 	}
@@ -50,9 +52,9 @@ func main() {
 
 	// Bai 5: In ra màn hình các địa chỉ của các item strong slice
 
-	for i := 0; i < len(data); i++ {
-		fmt.Println("Name", i, &data[i].Name)
-		fmt.Println("Class", i, &data[i].Class)
+	for _, i := range data {
+		fmt.Println("Name", i, &i.Name)
+		fmt.Println("Class", i, &i.Class)
 	}
 
 	// Bai 6:
